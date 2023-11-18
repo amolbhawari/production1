@@ -45,4 +45,10 @@ steps:
     buildType: 'current'
     downloadType: 'single'
     artifactName: 'drop'
-    downloadPath: '$(System.ArtifactsDirectory)'
+    downloadPath: '$(System.ArtifactsDirectory)'   
+
+- task: IISWebAppDeploymentOnMachineGroup@0
+  inputs:
+    WebSiteName: 'webapp'
+    VirtualApplication: 'webapp'
+    Package: '$(System.DefaultWorkingDirectory)\**\*.zip'
